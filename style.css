@@ -1,0 +1,116 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-image: url("main.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(140, 171, 216);
+}
+.navbar-brand{
+   
+    padding-bottom: 170px;
+    height: 55px;
+    width: 100px;
+    border-radius: 5px;
+    margin-right: 200px;
+    
+}
+
+.key{
+    text-align: center;
+}
+
+
+.container{
+    background-image: url("backmed.jpg");
+    background-size: cover;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+.container-fluid{
+    justify-content: center;
+}
+p{
+    font-weight: 600;
+}
+.nav{
+    background-image: url("head.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100px;
+}
+.btn{
+    align-items: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #4682b4;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.container {
+    padding: 20px;
+}
+.disease-list {
+    list-style: none;
+    padding: 0;
+}
+.disease-item {
+    background-color: #e0ffff;
+    border: 1px solid #b0c4de;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.disease-item:hover {
+    background-color: #b0e0e6;
+}
+.disease-details {
+    display: none;
+    margin-top: 10px;
+}
+.precautions {
+    margin-top: 10px;
+}
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .disease-list {
+            list-style: none;
+            padding: 0;
+        }
+        .disease-item {
+            background-color: #e0ffff;
+            border: 1px solid #b0c4de;
+            margin-bottom: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .disease-item:hover {
+            background-color: #b0e0e6;
+        }
+        .disease-details {
+            display: none;
+            margin-top: 10px;
+        }
+        .precautions {
+            margin-top: 10px;
+        }

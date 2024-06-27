@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Patient Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            background-image: url("chat.jpg");
+              background-size: cover;
+               background-repeat: no-repeat;
+            
+        }
+        #chat-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .doctor {
+            background-color: #d1e7dd;
+            align-self: flex-start;
+        }
+        .patient {
+            background-color: #cfe2ff;
+            align-self: flex-end;
+        }
+        #input-container {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        #input-container input {
+            flex-grow: 1;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+        }
+        #input-container button {
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #input-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="message-input" placeholder="Type a message">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const chatBox = document.getElementById('chat-box');
+            const messageInput = document.getElementById('message-input');
+            const messageText = messageInput.value.trim();
+
+            if (messageText) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', 'patient');
+                messageElement.textContent = messageText;
+
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                messageInput.value = '';
+
+                setTimeout(() => {
+                    const responseElement = document.createElement('div');
+                    responseElement.classList.add('message', 'doctor');
+                    responseElement.textContent = 'Doctor: ' + generateResponse(messageText);
+
+                    chatBox.appendChild(responseElement);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function generateResponse(message) {
+            const responses = {
+                symptoms: "Can you please elaborate on your symptoms?",
+                pain: "Can you describe the intensity of the pain?",
+                greet:"good morning",
+                medication: "Have you taken any medication for this condition? If so, what did you take and was it effective?",
+                duration: "I recommend scheduling a follow-up appointment for a thorough examination",
+                followup: "I recommend scheduling a follow-up appointment for a thorough examination."
+            };
+
+            const messageLower = message.toLowerCase();
+
+            if (messageLower.includes('fever') || messageLower.includes('cough') || messageLower.includes('symptoms')) {
+                return responses.symptoms;
+            } else if (messageLower.includes('pain') || messageLower.includes('ache')) {
+                return responses.pain;
+            } else if (messageLower.includes('medication') || messageLower.includes('medicine')) {
+                return responses.medication;
+            } else if (messageLower.includes('Hi') || messageLower.includes('good')) {
+                return responses.greet;
+            } else if (messageLower.includes('days') || messageLower.includes('weeks') || messageLower.includes('duration') || messageLower.includes('severe')) {
+                return responses.duration;
+            } else {
+                return responses.greet;
+            }
+        }
+    </script>
+</body>
+</html>
+
